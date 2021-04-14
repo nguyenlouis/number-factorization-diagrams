@@ -140,17 +140,14 @@ def generatePoints(factors):
 
     
 #%%
-def animate():
-    for n in range(2,10):
-        pts = generatePoints(fours(n))
-        circle(pts, n)
+def animate(c):
+    for n in range(2,c):
+        circle(n)
 
 
 #%% 
-def circle(pts, n):
-    fig, ax = plt.subplots()
-    plt.xlim(-2, 2)
-    plt.ylim(-2, 2)
+def circle(n):
+    sub = []
     for i in range(n):
         # rainbow points
         if i < n/6 :
@@ -180,21 +177,26 @@ def circle(pts, n):
         
         pts = generatePoints(fours(n))
         circle = plt.Circle((pts[i].x, pts[i].y), radius=r(n), color=(red, green, blue))
-        ax.add_artist(circle)
-    # suppr axes
-    ax.axes.xaxis.set_visible(False)
-    ax.axes.yaxis.set_visible(False)
-    ax.spines['left'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.xaxis.set_ticks_position('bottom')
-    ax.yaxis.set_ticks_position('left')
-    ax.set_aspect(1)
-    plt.show()
+        sub.append(ax.add_artist(circle))
+    plt.pause(0.5)
+    for s in sub:
+        s.remove()
 
 
+# suppr axes
+fig, ax = plt.subplots()
+plt.xlim(-2, 2)
+plt.ylim(-2, 2)
+ax.axes.xaxis.set_visible(False)
+ax.axes.yaxis.set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+ax.set_aspect(1)
+animate(30)
+plt.show()
 
-# %%
-animate()
-# %%
+
