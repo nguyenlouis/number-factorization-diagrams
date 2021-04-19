@@ -1,16 +1,9 @@
-# %%
 import math
 import matplotlib.pyplot as plt
 from matplotlib.artist import Artist
 from matplotlib.widgets import Button
-
-### Class
-
-# Point class
-class Point:
-    def __init__(self, x, y):
-        self.x = x  # Point x position
-        self.y = y  # Point y position
+from factodiagrams.preprocess.decomposition import prime_factors, fours, radius
+from .points import Point, generatePoints
 
 
 class Draw:
@@ -53,11 +46,11 @@ class Draw:
 
         # Create buttons
         self.buttons['prev'] = Button(
-            plt.axes([0.59, 0.05, 0.1, 0.075]), 'Sp. -')
+            plt.axes([0.64, 0.03, 0.1, 0.075]), 'Sp. -')
         self.buttons['next'] = Button(
-            plt.axes([0.81, 0.05, 0.1, 0.075]), 'Sp. +')
+            plt.axes([0.86, 0.03, 0.1, 0.075]), 'Sp. +')
         self.buttons['play'] = Button(
-            plt.axes([0.7, 0.05, 0.1, 0.075]), 'Play')
+            plt.axes([0.75, 0.03, 0.1, 0.075]), 'Play')
 
         # Buttons on click events
         self.buttons['prev'].on_clicked(self.decrease_speed)
@@ -126,14 +119,14 @@ class Draw:
         else:
             f = '({0})'.format(' x '.join(('2 x 2' if x == 4 else str(x))
                                           for x in factors) if len(factors) > 1 else "prime")
-        self.txt = plt.text(-1.1, 1.5, '{0} {1}'.format(self.n, f))
+        self.txt = plt.text(-7, 12, '{0} {1}'.format(self.n, f))
 
     # Display speed text
     def display_speed(self):
         # Remove text if exists
         if self.speed_txt:
             Artist.remove(self.speed_txt)
-        self.speed_txt = plt.text(-1.1, 1.1,
+        self.speed_txt = plt.text(0, 1.1,
                                   'Speed : {0}'.format(str(self.speed)))
 
     def generate_color(self, i, n):  # creates RGB code that covers the entire color spectrum
@@ -215,127 +208,7 @@ class Draw:
         n = len(points)
         for i, p in enumerate(points):
             red, green, blue = self.generate_color(i, n)
-            circle = plt.Circle((p.x, p.y), radius=r(n),
+            circle = plt.Circle((p.x, p.y), radius=radius(n),
                                 color=(blue, green, red))
             self.ax.add_artist(circle)
 
-
-### Def
-
-# Compute prime factors
-def prime_factors(n):
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
-
-
-def fours(n):
-    if n == 1:
-        return [1]
-    factors = []
-    while n % 4 == 0:
-        factors.append(4)
-        n //= 4
-
-    return factors + prime_factors(n)
-
-# Compute radius of a point
-
-
-def r(n):
-    # n = number of small circles
-    if n == 1:
-        return 1
-    s = math.sin(math.pi / n)
-    return s / (s + 1)
-
-# Generate and distribute points`
-
-
-def generatePoints(factors):
-    # initialize variables
-    parentPoints = []
-    points = []
-    a = 0
-    x = 0
-    y = 0
-    da = 0
-
-    point = 0
-    n = 1
-    d = 1
-
-    if factors == [1]:
-        return [Point(0, 0)]
-    # Instantiate points for each prime factors
-    while (len(factors)):
-        d = d * n * 0.85  # scale depth
-        n = factors.pop()  # build points from outwards
-
-        # Compute offset
-        if(n == 4):
-            da = - math.pi / 4
-
-        elif(n == 2):
-            da = - math.pi / 2
-        else:
-            da = math.pi / 2
-
-        if (len(points) == 0):  # check for first set of points
-            for i in range(n):
-                a = i * 2 * math.pi / n + da
-                x = math.cos(a)
-                y = math.sin(a)
-                point = Point(x, y)
-                points.append(point)
-        else:  # iteratively build points by keeping track of parentPoints
-            if(n == 2):  # rotation of groups of 2 to align with their parent points
-                # for prime numbers times 2 (double circle) - aligned with absolute center (0,0)
-                if (len(parentPoints) == 0):
-                    # create shallow copy of points
-                    parentPoints = list(points)
-                    points = []  # reset points
-                    for parentPoint in parentPoints:
-                        for i in range(n):
-                            x = parentPoint.x + (1-2*i)*parentPoint.x / d
-                            y = parentPoint.y + (1-2*i)*parentPoint.y / d
-                            point = Point(x, y)
-                            points.append(point)
-                else:  # for every other group of 2 - aligned with their 'grandparent points'
-                    # create shallow copy of points without deleting previous parent points ('grandparent points')
-                    parentPoints2 = list(points)
-                    points = []  # reset points
-                    j = 0
-                    for parentPoint2 in parentPoints2:
-                        coef = len(parentPoints2)/len(parentPoints)
-                        for i in range(n):
-                            x = parentPoints[int(
-                                j//coef)].x + (parentPoint2.x - parentPoints[int(j//coef)].x) * (1.5-i*0.8)
-                            y = parentPoints[int(
-                                j//coef)].y + (parentPoint2.y - parentPoints[int(j//coef)].y) * (1.5-i*0.8)
-                            point = Point(x, y)
-                            points.append(point)
-                        j += 1
-            else:
-                parentPoints = list(points)  # create shallow copy of points
-                points = []  # reset points
-                for parentPoint in parentPoints:  # build new points using parentPoints
-                    for i in range(n):
-                        a = i * 2 * math.pi / n + da
-                        x = parentPoint.x + math.cos(a) / d
-                        y = parentPoint.y + math.sin(a) / d
-                        point = Point(x, y)
-                        points.append(point)
-    return points
-
-
-# %%
-d = Draw(60, 0.3, 0.6)
