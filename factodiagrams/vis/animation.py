@@ -192,6 +192,14 @@ class Draw:
 
     def generate_color(self, i, n):  
         """Creates RGB code that covers the entire color spectrum.
+
+        :param i: x coordinate of a point.
+        :type i: float
+        :param n: number to decompose.
+        :type n: int
+
+        :return: 3 numbers for colors
+        :rtype: float, float, float
         """
         if i < n / 6:
             red = 1
@@ -285,7 +293,6 @@ class Draw:
         y = o.y + ((t.y - o.y) / total_frames) * (current_frame + 1)
         return Point(x, y)
 
-    # 
     def display_points(self, points):
         """Display points.
         

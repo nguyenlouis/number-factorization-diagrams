@@ -32,12 +32,16 @@ Welcome to Factodiagrams's documentation!
    :maxdepth: 2
    :caption: Animation:
 
+   documentation/animation.rst
+
    
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Examples:
+
+   examples/examples.rst
 
 
 
