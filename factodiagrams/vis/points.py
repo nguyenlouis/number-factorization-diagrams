@@ -3,6 +3,8 @@ import math
 
 # Point class
 class Point:
+    """Definition of a geometric point (x, y).
+    """
     def __init__(self, x, y):
         self.x = x  # Point x position
         self.y = y  # Point y position
@@ -10,6 +12,12 @@ class Point:
 
 # Generate and distribute points
 def generatePoints(factors):
+    """Returns the position of each point according to the number to decompose.
+
+    :param factors: list containing the prime factorization of a number.
+    :return: list of coordinates for each point
+    :rtype: list of Point object
+    """
     # initialize variables
     parentPoints = []
     points = []
