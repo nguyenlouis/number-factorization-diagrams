@@ -17,8 +17,6 @@ class Draw:
     :type animation_duration: float
     :param pause_duration: pause duration at animation end.
     :type pause_duration: float
-    :param buttons: ?
-    :type buttons: dict
     :param txt: text to display.
     :type txt: str
     :parma speed_txt: text display speed.
