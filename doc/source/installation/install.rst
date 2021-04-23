@@ -1,12 +1,14 @@
 How to install factodiagrams
 ============================
 
+
+To install this package you will need to type the command below in the terminal.
+
 On Windows
 ----------
 
-To install this module
+
 
 On Linux
 --------
 
-To install this module
