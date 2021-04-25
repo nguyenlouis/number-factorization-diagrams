@@ -19,7 +19,7 @@ class Draw:
     :type pause_duration: float
     :param txt: text to display.
     :type txt: str
-    :parma speed_txt: text display speed.
+    :param speed_txt: text display speed.
     :type speed_txt: float
     :param points: list of points
     :type points: list of Point object
