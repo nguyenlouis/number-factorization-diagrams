@@ -7,7 +7,7 @@ setup(
   description='Visualization of prime factorization',
   url='https://github.com/nguyenlouis/number-factorization-diagrams',
   author='Bouthayna Hayou, Juliette Lidoine, Louis Nguyen, Sidy Sow.',
-  author_email='juliette.lidoine@etu.umontpellier.fr',
+  author_email='juliette.lidoine@etu.umontpellier.fr, bouthayna.hayou@etu.umontpellier.fr',
   license='MIT',
   packages=['factodiagrams','factodiagrams.preprocess', 'factodiagrams.vis'],
   zip_safe=False
