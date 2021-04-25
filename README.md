@@ -5,3 +5,11 @@ Factorization diagrams are depictions of numbers using dots but grouped by facto
 This visualization helps us track the prime factors that compose a given number. We can easily identify primes when we arrive to a
 simple circle (i.e. a prime cannot be composed of smaller divisors). We can also identify common patterns of smaller prime divisors
 e.g. `2`, `3`, `5`
+
+## Members 
+
+- Hayou Bouthayna : bouthayna.hayou@etu.umontpellier.fr
+- Lidoine Juliette : juliette.lidoine@etu.umontpellier.fr
+- Nguyen Louis : louis.nguyen@etu.umontpellier.fr
+- Sow Sidy : sidy.sow@etu.umontpellier.fr
+
