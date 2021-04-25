@@ -1,29 +1,6 @@
 import math
+from .Factorisation import Factorization
 
-# Compute prime factors
-def prime_factors(n):
-    """Returns list of prime factors (in ascending order) of n.
-
-    :param n: number to decompose.
-    :type n: int
-
-    :Examples:
-        prime_factors(1) []
-        prime_factors(7) [7]
-        prime_factors(15) [3, 5]
-        prime_factors(12) [2, 2, 3]
-    """
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
 
 # grouping of 2x2s into 4
 def fours(n):
@@ -43,7 +20,7 @@ def fours(n):
     while n % 4 == 0:
         factors.append(4)
         n //= 4
-    return factors + prime_factors(n)
+    return factors + Factorization().prime_factors(n)
 
 
 # Compute radius of a point

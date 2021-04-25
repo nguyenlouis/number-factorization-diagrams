@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 from matplotlib.artist import Artist
 from matplotlib.widgets import Button
-from factodiagrams.preprocess.decomposition import prime_factors, fours, radius
+from factodiagrams.preprocess.decomposition import fours, radius
 from .points import Point, generatePoints
 
 
