@@ -4,7 +4,7 @@ Poster Generator
 
 """
 
-from Factorization import *
+import factodiagrams
 
-factorisation=Factorization()
+factorisation = factodiagrams.preprocess.Factorisation.Factorization()
 factorisation.draw_factor_poster(list(range(1,129)),"prime_factors",10)

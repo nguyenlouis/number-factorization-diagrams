@@ -32,8 +32,8 @@ prime factors method
 
 .. code-block:: default
 
-    from Factorization import *
-    factorisation=Factorization()
+    import factodiagrams
+    factorisation = factodiagrams.preprocess.Factorisation.Factorization()
     print(factorisation.prime_factors(70))
 
 
@@ -60,8 +60,8 @@ Pollard Rho  method
 
 .. code-block:: default
 
-    from Factorization import *
-    factorisation=Factorization()
+    import factodiagrams
+    factorisation = factodiagrams.preprocess.Factorisation.Factorization()
     print(factorisation.pollardrho(70))
 
 

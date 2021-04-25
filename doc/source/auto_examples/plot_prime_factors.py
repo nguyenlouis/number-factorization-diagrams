@@ -7,8 +7,8 @@ This page provides examples using the methods prime factors and Pollard Rho.
 # %%
 # prime factors method
 # ------------------------
-from Factorization import *
-factorisation=Factorization()
+import factodiagrams
+factorisation = factodiagrams.preprocess.Factorisation.Factorization()
 print(factorisation.prime_factors(70))
 
 ###############################################################################
@@ -16,6 +16,6 @@ print(factorisation.prime_factors(70))
 # %%
 # Pollard Rho  method
 # ------------------------
-from Factorization import *
-factorisation=Factorization()
+import factodiagrams
+factorisation = factodiagrams.preprocess.Factorisation.Factorization()
 print(factorisation.pollardrho(70))

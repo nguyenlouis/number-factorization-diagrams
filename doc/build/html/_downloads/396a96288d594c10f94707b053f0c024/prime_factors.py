@@ -15,7 +15,7 @@ This example doesn't do much, it just makes a simple plot
 # These lines won't be rendered as rST because there is a gap after the last
 # commented rST block. Instead, they'll resolve as regular Python comments.
 # Normal Python code can follow these comments.
-from Factorization import *
+import factodiagrams
 
-factorisation=Factorization()
+factorisation = factodiagrams.preprocess.Factorisation.Factorization()
 print(factorisation.prime_factors(70))

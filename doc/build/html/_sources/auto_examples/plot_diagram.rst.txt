@@ -31,9 +31,9 @@ Diagram generating using Prime factors
 .. code-block:: default
 
 
-    from Factorization import *
+    import factodiagrams
 
-    factorisation=Factorization()
+    factorisation = factodiagrams.preprocess.Factorisation.Factorization()
     factorisation.draw_factor(70,"prime_factors",True,True)
 
 
@@ -65,9 +65,9 @@ Diagram generating using Pollard Rho
 .. code-block:: default
 
 
-    from Factorization import *
+    import factodiagrams
 
-    factorisation=Factorization()
+    factorisation = factodiagrams.preprocess.Factorisation.Factorization()
     factorisation.draw_factor(70,"pollardrho",True,True)
 
 
