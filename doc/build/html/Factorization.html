@@ -483,12 +483,31 @@ by factoring it and calling factorization method</p>
 <span class="target" id="module-factodiagrams.preprocess.facto_f_W"></span><dl class="py function">
 <dt id="factodiagrams.preprocess.facto_f_W.fermat">
 <code class="sig-prename descclassname">factodiagrams.preprocess.facto_f_W.</code><code class="sig-name descname">fermat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#factodiagrams.preprocess.facto_f_W.fermat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fermat decomposition method</p>
+<p>Let n be the number to factorize and q = E (sqrt{N}). The idea is to find a and b such that n = a^2 - b^2 then N = (a+b)(ab) and if a exists then a geqslant q + 1. We successively choose a = q + 1, a = q + 2, a = q + 3,… until there is an a such that a^2 - N is a square. If we find a decomposition as a difference of two squares, in other words if N = a^2 - b^2 then, a geqslant E (sqrt {N})+1 where E (sqrt{N}) is the integer part of sqrt{N}.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – number to decompose</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of prime factors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="factodiagrams.preprocess.facto_f_W.wilson_factor">
 <code class="sig-prename descclassname">factodiagrams.preprocess.facto_f_W.</code><code class="sig-name descname">wilson_factor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#factodiagrams.preprocess.facto_f_W.wilson_factor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Wilson decomposition method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – number to decompose</p>
+</dd>
+</dl>
+</dd></dl>
 
 <span class="target" id="module-factodiagrams.preprocess.facto_methode"></span><dl class="py function">
 <dt id="factodiagrams.preprocess.facto_methode.factorization">

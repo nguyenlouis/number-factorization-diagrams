@@ -11,7 +11,8 @@ This page provides a documentation of different factorization functions and diag
    :maxdepth: 3
    :caption: Contents:
 
-
+.. include::
+   install.rst
 
 .. include::
    modules.rst
