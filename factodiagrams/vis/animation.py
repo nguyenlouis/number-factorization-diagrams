@@ -100,8 +100,7 @@ class Draw:
     def play_pause(self, e):
         """Creates the "play/pause" button.
 
-        :return: a button that displays "pause" when the animation is running and "play" when paused.
-        :rtype: button
+        It's a button that displays "pause" when the animation is running and "play" when paused.
         """
         if self.status == 'pause':
             self.status = 'play'
@@ -273,7 +272,7 @@ class Draw:
     def compute_current_position(self, o, t, total_frames, current_frame):
         """Compute point position at the frame current_frame.
 
-        This function calculates the point t from the point o. Used in the "frame" function to calculate each frame of transitions.
+        This function calculates the transition point to t from the point o. Used in the "frame" function to calculate each frame of transitions.
 
         :param o: coordinates of old point.
         :type o: list
