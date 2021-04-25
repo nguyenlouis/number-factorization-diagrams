@@ -11,6 +11,12 @@ from subprocess import check_call
 import os
 from PIL import Image
 from random import randint
+import unittest
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + (os.path.sep + "..") * 2)
+import warnings
+import factodiagrams 
+
+
 #%%
 try:
     number = int(input('Enter a number : '))
@@ -34,56 +40,60 @@ for i in wilson_factor :
     print(i)
 #%%
 # resultat du test avec un nombre =24
-wilson factor of 24 - 
-2
-2
-2
-3
+# Wilson factor of 24 - 
+# 2
+# 2
+# 2
+# 3
 #%%
 def test_fermat(self):
-        actual=Factorization().fermat(24)
+        actual = factodiagrams.preprocess.facto_f_W.fermat(24)
         expected=[12,2]
         self.assertEqual(actual,expected)
 
 
 
 #%%
- def test_draw_factor_fermat(n):
-        actual=Factorization().draw_factor(24,"fermat",False,False)
-        assertTrue(actual)
+def test_draw_factor_fermat(self):
+    actual = factodiagrams.preprocess.Factorisation.Factorization().draw_factor(24,"fermat",False,False)
+    self.assertTrue(actual)
 #%%  
-    def test_draw_wilson_factor(self):
-        actual=Factorization().draw_factor(24,"wilson_factor",False,False)
-        self.assertTrue(actual)
+def test_draw_wilson_factor(self):
+    actual = factodiagrams.preprocess.Factorisation.Factorization().draw_factor(24,"wilson_factor",False,False)
+    self.assertTrue(actual)
 #%%
-    def test_draw_factor_poster(self):
-        Factorization().draw_factor_poster(list(range(1,10)),"fermat")
-        exists= os.path.exists("../poster")
-        self.assertTrue(exists)
-        expected=[]
-        for i in list(range(1,10)):
-            expected.append(str(i)+"\'s_Diagram.png")
-        expected.sort()
-        actual=os.listdir("../poster/")
-        actual.sort()
-        self.assertEqual(actual,expected)
+def test_draw_factor_poster_fermat(self):
+    factodiagrams.preprocess.Factorisation.Factorization().draw_factor_poster(list(range(1,10)),"fermat")
+    exists= os.path.exists("../poster")
+    self.assertTrue(exists)
+    expected=[]
+    for i in list(range(1,10)):
+        expected.append(str(i)+"\'s_Diagram.png")
+    expected.sort()
+    actual=os.listdir("../poster/")
+    actual.sort()
+    self.assertEqual(actual,expected)
+
+
 if __name__=='__main__':
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
     unittest.main()
 
-    # %%
-    def test_draw_factor_poster(self):
-        Factorization().draw_factor_poster(list(range(1,10)),"wilson_factor")
-        exists= os.path.exists("../poster")
-        self.assertTrue(exists)
-        expected=[]
-        for i in list(range(1,10)):
-            expected.append(str(i)+"\'s_Diagram.png")
-        expected.sort()
-        actual=os.listdir("../poster/")
-        actual.sort()
-        self.assertEqual(actual,expected)
+# %%
+def test_draw_factor_poster_Wilson(self):
+    factodiagrams.preprocess.Factorisation.Factorization().draw_factor_poster(list(range(1,10)),"wilson_factor")
+    exists= os.path.exists("../poster")
+    self.assertTrue(exists)
+    expected=[]
+    for i in list(range(1,10)):
+        expected.append(str(i)+"\'s_Diagram.png")
+    expected.sort()
+    actual=os.listdir("../poster/")
+    actual.sort()
+    self.assertEqual(actual,expected)
+
+
 if __name__=='__main__':
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore")
