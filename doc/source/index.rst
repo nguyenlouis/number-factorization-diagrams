@@ -8,7 +8,7 @@ Welcome to Factodiagrams's documentation!
 
 This package was created in order to visualize the factorization of integer in prime number. You can find several functions including one creating an animation of of the prime factorization.
 
-.. image:: http://i.stack.imgur.com/YvMo4.gif
+.. image::http://i.stack.imgur.com/YvMo4.gif
    :height: 100
    :width: 200
    :scale: 50
@@ -25,19 +25,11 @@ This package was created in order to visualize the factorization of integer in p
 
 .. toctree::
    :maxdepth: 2
-   :caption: Factorization:
-
-   documentation/factorization.rst
-
-
-.. toctree::
-   :maxdepth: 2
    :caption: Animation:
 
    documentation/animation.rst
 
    
-
 
 .. toctree::
    :maxdepth: 2

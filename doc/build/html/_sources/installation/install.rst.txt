@@ -11,7 +11,4 @@ On Windows
 
 On Linux
 --------
-.. code-block:: bash
-
-    $ pip install git+https://github.com/nguyenlouis/number-factorization-diagrams
 
